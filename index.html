@@ -1,139 +1,186 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title></title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-* { box-sizing: border-box; }
-body {
-font-family: 'Georgia', serif;
-margin: 0;
-background: #fffafc;
-color: #4a2c2a;
-overflow-x: hidden;
-}
-.slider-container {
-position: relative;
-max-width: 700px;
-margin: auto;
-padding: 40px 20px;
-text-align: center;
-}
-.slide { display: none; }
-.active { display: block; }
-img {
-width: 100%;
-border-radius: 12px;
-box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-}
-.narration {
-font-size: 1.2em;
-font-style: italic;
-margin: 20px 0;
-}
-.nav {
-position: absolute;
-top: 50%;
-transform: translateY(-50%);
-font-size: 2em;
-background: rgba(0,0,0,0.1);
-color: #a64b6a;
-padding: 10px;
-cursor: pointer;
-user-select: none;
-}
-.nav:hover { background: rgba(0,0,0,0.2); }
-.left { left: 0; }
-.right { right: 0; }
-.rsvp-button {
-display: inline-block;
-background-color: #a64b6a;
-color: white;
-padding: 12px 20px;
-border-radius: 8px;
-text-decoration: none;
-font-weight: bold;
-margin-top: 20px;
-}
-.map-link a {
-color: #a64b6a;
-font-weight: bold;
-text-decoration: underline;
-}
-audio {
-display: none;
-}
-</style>
+  <meta charset="UTF-8">
+  <title>Invitación de Boda - Itzay & Alejandro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      margin: 0;
+      background: #fffafc;
+      color: #4a2c2a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1, h3 {
+      text-align: center;
+      margin: 10px 20px;
+    }
+
+    .slider-container {
+      width: 100%;
+      max-width: 700px;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .slide {
+      display: none;
+    }
+
+    .active {
+      display: block;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+
+    .narration {
+      font-size: 1.1em;
+      font-style: italic;
+      margin: 20px;
+    }
+
+    .nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2em;
+      background: rgba(0, 0, 0, 0.1);
+      color: #a64b6a;
+      padding: 10px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .nav:hover {
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .left {
+      left: 0;
+    }
+
+    .right {
+      right: 0;
+    }
+
+    .rsvp-button {
+      display: inline-block;
+      background-color: #a64b6a;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    .map-link a {
+      color: #a64b6a;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    audio {
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      .narration {
+        font-size: 1em;
+      }
+
+      .nav {
+        font-size: 1.5em;
+        padding: 8px;
+      }
+    }
+  </style>
 </head>
 <body>
 
 <audio autoplay loop>
-<source src="cancion.mp3" type="audio/mpeg">
+  <source src="cancion.mp3" type="audio/mpeg">
+  Tu navegador no soporta audio HTML5.
 </audio>
 
-<h1 style="text-align:center; margin-top:30px;"></h1>
-<h3 style="text-align:center; color:#6c4b4b;"></h3>
+<h1>Itzay & Alejandro</h1>
+<h3>Nuestra Boda</h3>
 
 <div class="slider-container">
-<div class="nav left" onclick="plusSlides(-1)">&#10094;</div>
-<div class="nav right" onclick="plusSlides(1)">&#10095;</div>
+  <div class="nav left" onclick="plusSlides(-1)">&#10094;</div>
+  <div class="nav right" onclick="plusSlides(1)">&#10095;</div>
 
-<div class="slide active">
-<img src="1.jpg" alt="Diapositiva 1">
-<p class="narration">Nuestra historia comenzó con una mirada, y desde entonces todo cambió.</p>
-</div>
+  <div class="slide active">
+    <img src="Alejandro/Alejandro/1.jpg" alt="Diapositiva 1">
+    <p class="narration">Nuestra historia comenzó con una mirada, y desde entonces todo cambió.</p>
+  </div>
 
-<div class="slide">
-<img src="2.jpg" alt="Diapositiva 2">
-<p class="narration">El amor creció con cada paso, con cada risa, con cada sueño compartido.</p>
-</div>
+  <div class="slide">
+    <img src="Alejandro/Alejandro/2.jpg" alt="Diapositiva 2">
+    <p class="narration">El amor creció con cada paso, con cada risa, con cada sueño compartido.</p>
+  </div>
 
-<div class="slide">
-<img src="3.jpg" alt="Diapositiva 3">
-<p class="narration"></p>
-</div>
+  <div class="slide">
+    <img src="Alejandro/Alejandro/3.jpg" alt="Diapositiva 3">
+    <p class="narration">Hoy, con el corazón lleno de ilusión, queremos invitarte a ser parte de nuestro "para siempre".</p>
+  </div>
 
-<div class="slide">
-<img src="4.jpg" alt="Diapositiva 4">
-<p class="narration"></p>
-</div>
+  <div class="slide">
+    <img src="Alejandro/Alejandro/4.jpg" alt="Diapositiva 4">
+    <p class="narration">Nos emociona compartir este día tan especial con las personas que más amamos.</p>
+  </div>
 
-<div class="slide">
-<p class="narration">Porque el amor verdadero se celebra, se vive, y se agradece en compañía.</p>
-<img src="5.jpg" alt="Diapositiva 5">
-</div>
+  <div class="slide">
+    <img src="Alejandro/Alejandro/5.jpg" alt="Diapositiva 5">
+    <p class="narration">Porque el amor verdadero se celebra, se vive, y se agradece en compañía.</p>
+  </div>
 
-<div class="slide">
-<img src="6.jpg" alt="Diapositiva 6">
-<p class="narration map-link">Ver ubicación: <a href="https://maps.app.goo.gl/bmzyykZCDqgWSQNE8?g_st=ipc" target="_blank">Google Maps</a></p>
-</div>
+  <div class="slide">
+    <img src="Alejandro/Alejandro/6.jpg" alt="Diapositiva 6">
+    <p class="narration map-link">Ver ubicación: <a href="https://maps.app.goo.gl/2HuRWfq7Fi7wF6je9" target="_blank">Google Maps</a></p>
+  </div>
 
-<div class="slide">
-<img src="7.jpg" alt="Diapositiva 7">
-<p class="narration">Tu presencia será el mejor regalo en este comienzo de nuestro nuevo capítulo.</p>
-</div>
+  <div class="slide">
+    <img src="Alejandro/Alejandro/7.jpg" alt="Diapositiva 7">
+    <p class="narration">Tu presencia será el mejor regalo en este comienzo de nuestro nuevo capítulo.</p>
+  </div>
 
-<div class="slide">
-<img src="8.jpg" alt="Diapositiva 8">
-<p class="narration">Con amor, Itzay & Alejandro. <br> Te esperamos con el corazón abierto.</p>
-<a class="rsvp-button" href="https://wa.me/+525579747519?text=Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Itzay%20y%20Alejandro" target="_blank">Da clic aquí para confirmar</a>
-</div>
+  <div class="slide">
+    <img src="Alejandro/Alejandro/8.jpg" alt="Diapositiva 8">
+    <p class="narration">Con amor, Itzay & Alejandro. <br> Te esperamos con el corazón abierto.</p>
+    <a class="rsvp-button" href="https://wa.me/5211234567890?text=Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Itzay%20y%20Alejandro" target="_blank">Da clic aquí para confirmar</a>
+  </div>
 </div>
 
 <script>
 let slideIndex = 0;
 showSlides(slideIndex);
+
 function plusSlides(n) {
-slideIndex += n;
-showSlides(slideIndex);
+  slideIndex += n;
+  showSlides(slideIndex);
 }
+
 function showSlides(n) {
-let slides = document.querySelectorAll('.slide');
-if (n >= slides.length) slideIndex = 0;
-if (n < 0) slideIndex = slides.length - 1;
-slides.forEach(slide => slide.classList.remove('active'));
-slides[slideIndex].classList.add('active');
+  const slides = document.querySelectorAll('.slide');
+  if (n >= slides.length) slideIndex = 0;
+  if (n < 0) slideIndex = slides.length - 1;
+  slides.forEach(slide => slide.classList.remove('active'));
+  slides[slideIndex].classList.add('active');
 }
 </script>
 
