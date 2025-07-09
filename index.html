@@ -5,9 +5,7 @@
   <title>Invitación de Boda - Itzay & Alejandro</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       font-family: 'Georgia', serif;
@@ -34,10 +32,15 @@
 
     .slide {
       display: none;
+      opacity: 0;
+      transform: translateX(30px);
+      transition: all 0.6s ease-in-out;
     }
 
-    .active {
+    .slide.active {
       display: block;
+      opacity: 1;
+      transform: translateX(0);
     }
 
     img {
@@ -51,30 +54,6 @@
       font-size: 1.1em;
       font-style: italic;
       margin: 20px;
-    }
-
-    .nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 2em;
-      background: rgba(0, 0, 0, 0.1);
-      color: #a64b6a;
-      padding: 10px;
-      cursor: pointer;
-      user-select: none;
-    }
-
-    .nav:hover {
-      background: rgba(0, 0, 0, 0.2);
-    }
-
-    .left {
-      left: 0;
-    }
-
-    .right {
-      right: 0;
     }
 
     .rsvp-button {
@@ -102,11 +81,6 @@
       .narration {
         font-size: 1em;
       }
-
-      .nav {
-        font-size: 1.5em;
-        padding: 8px;
-      }
     }
   </style>
 </head>
@@ -120,10 +94,7 @@
 <h1>Itzay & Alejandro</h1>
 <h3>Nuestra Boda</h3>
 
-<div class="slider-container">
-  <div class="nav left" onclick="plusSlides(-1)">&#10094;</div>
-  <div class="nav right" onclick="plusSlides(1)">&#10095;</div>
-
+<div class="slider-container" ontouchstart="handleTouchStart(event)" ontouchend="handleTouchEnd(event)">
   <div class="slide active">
     <img src="1.jpg" alt="Diapositiva 1">
     <p class="narration">Nuestra historia comenzó con una mirada, y desde entonces todo cambió.</p>
@@ -160,7 +131,7 @@
   </div>
 
   <div class="slide">
-    <img src="8.jpg" alt="Diapositiva 8">
+    <img src="Alejandro/Alejandro/8.jpg" alt="Diapositiva 8">
     <p class="narration">Con amor, Itzay & Alejandro. <br> Te esperamos con el corazón abierto.</p>
     <a class="rsvp-button" href="https://wa.me/+525579747519?text=Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Itzay%20y%20Alejandro" target="_blank">Da clic aquí para confirmar</a>
   </div>
@@ -168,19 +139,53 @@
 
 <script>
 let slideIndex = 0;
+const slides = document.querySelectorAll('.slide');
 showSlides(slideIndex);
 
-function plusSlides(n) {
-  slideIndex += n;
-  showSlides(slideIndex);
+function showSlides(n) {
+  slides.forEach((slide, i) => {
+    slide.style.display = i === n ? 'block' : 'none';
+    slide.classList.toggle('active', i === n);
+  });
 }
 
-function showSlides(n) {
-  const slides = document.querySelectorAll('.slide');
-  if (n >= slides.length) slideIndex = 0;
-  if (n < 0) slideIndex = slides.length - 1;
-  slides.forEach(slide => slide.classList.remove('active'));
-  slides[slideIndex].classList.add('active');
+// Swipe navigation
+let xStart = null;
+
+function handleTouchStart(evt) {
+  xStart = evt.touches[0].clientX;
+}
+
+function handleTouchEnd(evt) {
+  if (!xStart) return;
+  let xEnd = evt.changedTouches[0].clientX;
+  let dx = xEnd - xStart;
+
+  if (dx > 50) plusSlides(-1); // Swipe right
+  else if (dx < -50) plusSlides(1); // Swipe left
+  xStart = null;
+}
+
+function plusSlides(n) {
+  const current = slides[slideIndex];
+  current.classList.remove('active');
+
+  slideIndex = (slideIndex + n + slides.length) % slides.length;
+  const next = slides[slideIndex];
+  next.style.display = 'block';
+
+  setTimeout(() => {
+    next.classList.add('active');
+  }, 20);
+
+  setTimeout(() => {
+    slides.forEach((s, i) => {
+      if (i !== slideIndex) {
+        s.style.display = 'none';
+        s.classList.remove('active');
+      }
+    });
+  }, 600);
 }
 </script>
 
